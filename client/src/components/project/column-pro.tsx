@@ -1,4 +1,4 @@
-import { insertProject } from "@server/db/schema/project";
+import { InsertProject } from "@server/types/project";
 import { ColumnDef } from "@tanstack/react-table";
 import {
   ArrowUpDown,
@@ -11,7 +11,7 @@ import {
 import { Button } from "../ui/button";
 import { DrawerDemo } from "./OverView";
 
-export const columns: ColumnDef<insertProject>[] = [
+export const columns: ColumnDef<InsertProject>[] = [
   {
     id:"action" ,
     cell: ({row}) => {

@@ -1,11 +1,11 @@
 import { Progress } from "@/components/ui/progress";
-import { insertProject } from "@server/db/schema/project";
+import { InsertProject } from "@server/types/project";
 import { useDraggable } from "@dnd-kit/core";
 
 export default function List(props: {
   index: number;
   value: number;
-  project: insertProject;
+  project: InsertProject;
 }) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: props.project.id!,

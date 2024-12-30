@@ -11,10 +11,10 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { insertProject } from "@server/db/schema/project";
+import { InsertProject } from "@server/types/project";
 import { Label } from "../ui/label";
 
-export function DrawerDemo(props: { item: insertProject }) {
+export function DrawerDemo(props: { item: InsertProject }) {
 
   return (
     <Drawer>

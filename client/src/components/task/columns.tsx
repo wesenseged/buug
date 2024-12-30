@@ -1,5 +1,5 @@
 import React from "react";
-import { insertTask } from "@server/db/schema/task";
+import { InsertTask } from "@server/types/task";
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "../ui/checkbox";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -97,7 +97,7 @@ const DeleteTaskCheckbox: React.FC<{ id: number,hours:number }> = ({ id,hours })
   );
 };
 
-export const columns: ColumnDef<insertTask>[] = [
+export const columns: ColumnDef<InsertTask>[] = [
   {
     id: "Tasks",
     cell: ({ row }) => {

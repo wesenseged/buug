@@ -1,10 +1,10 @@
-import { insertProject } from "@server/db/schema/project";
+import { InsertProject } from "@server/types/project";
 import { DataTable } from "../task/dataTable";
 import { columns } from "./column-pro";
 import { Card, CardDescription, CardFooter, CardHeader } from "../ui/card";
 import { Folder } from "lucide-react";
 
-const TableView = (props: { items: insertProject[] }) => {
+const TableView = (props: { items: InsertProject[] }) => {
   return (
     <div className="w-full">
 
