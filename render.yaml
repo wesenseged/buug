@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: buug-client
+    env: static
+    buildCommand: |
+      cd client
+      bun install
+      bun run build
+    staticPublishPath: client/dist
+
+  - type: web
+    name: buug-server
+    env: node
+    buildCommand: |
+      cd server
+      bun install
+      bun run build
+    startCommand: bun ./dist/index.js
+    envVars:
+      - key: BUN_ENV
+        value: production
+      - key: PORT
+        value: 3000
