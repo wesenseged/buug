@@ -1,7 +1,8 @@
 import { Hono } from "hono";
-import { cors } from "hono/cors";
+import path from "path";
+// import { cors } from "hono/cors";
 import { logger } from "hono/logger";
-// import { serveStatic } from "hono/bun";
+import { serveStatic } from "hono/bun";
 import authRoute from "./route/apiRoute";
 import { taskRoute } from "./route/taskRoute";
 import projectRoute from "./route/projectRoute";
@@ -12,13 +13,13 @@ const app = new Hono();
 
 app.use("*", logger());
 
-app.use(
-  cors({
-    origin: "https://buug-client.onrender.com/", // Replace with your frontend URL
-    allowMethods: ["GET", "POST", "PUT", "DELETE"],
-    allowHeaders: ["Content-Type", "Authorization"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://buug-client.onrender.com/", // Replace with your frontend URL
+//     allowMethods: ["GET", "POST", "PUT", "DELETE"],
+//     allowHeaders: ["Content-Type", "Authorization"],
+//   })
+// );
 
 // app.get("/favicon.ico", (c) => {
 //   return c.body(null, 204);
@@ -38,6 +39,15 @@ const routes = app
 //
 // app.get("*", serveStatic({ root: "./client/dist" }));
 // app.get("*", serveStatic({ path: "./client/dist/index.html" }));
+const clientPath = path.resolve(__dirname, "../../client/dist");
+app.use("/", serveStatic({ root: clientPath }));
+
+// API routes
+app.get("/api/hello", (c) => c.json({ message: "Hello from the API!" }));
+
+// Fallback to serve `index.html` for SPA
+app.get("/*", serveStatic({ path: `${clientPath}/index.html` }));
+
 //
 export type AppType = typeof routes;
 export default app;
