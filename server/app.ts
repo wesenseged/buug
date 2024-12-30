@@ -14,7 +14,7 @@ app.use("*", logger());
 
 app.use(
   cors({
-    origin: "https://https://buug-client.onrender.com/", // Replace with your frontend URL
+    origin: "https://buug-client.onrender.com/", // Replace with your frontend URL
     allowMethods: ["GET", "POST", "PUT", "DELETE"],
     allowHeaders: ["Content-Type", "Authorization"],
   })
