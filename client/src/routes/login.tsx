@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 // api
 import { api } from "@/lib/api";
 // login schema for type safty
-import { loginUserSchema, LoginUser } from "@server/types/user";
+import {  LoginUser } from "@server/types/user";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -82,10 +82,10 @@ export default function Login() {
           <div>
             <form.Field
               name="email"
-              validatorAdapter={zodValidator()}
-              validators={{
-                onChange: loginUserSchema.shape.email,
-              }}
+              // validatorAdapter={zodValidator()}
+              // validators={{
+              //   onChange: loginUserSchema.shape.email,
+              // }}
               children={(field) => {
                 // Avoid hasty abstractions. Render props are great!
                 return (
@@ -115,10 +115,10 @@ export default function Login() {
           <div className="mt-5">
             <form.Field
               name="password_hash"
-              validatorAdapter={zodValidator()}
-              validators={{
-                onChange: loginUserSchema.shape.password_hash,
-              }}
+              // validatorAdapter={zodValidator()}
+              // validators={{
+              //   onChange: loginUserSchema.shape.password_hash,
+              // }}
               children={(field) => {
                 // Avoid hasty abstractions. Render props are great!
                 return (

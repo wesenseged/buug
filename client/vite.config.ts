@@ -7,7 +7,13 @@ import path from "path";
 export default defineConfig({
   build: {
     rollupOptions: {
-      external: ["pg", "drizzle-orm/pg-core", "drizzle-orm", "drizzle-zod"],
+      external: [
+        "pg",
+        "zod",
+        "drizzle-orm/pg-core",
+        "drizzle-orm",
+        "drizzle-zod",
+      ],
     },
   },
   plugins: [react(), TanStackRouterVite()],
