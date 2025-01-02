@@ -7,13 +7,7 @@ import path from "path";
 export default defineConfig({
   build: {
     rollupOptions: {
-      external: [
-        "pg",
-        "zod",
-        "drizzle-orm/pg-core",
-        "drizzle-orm",
-        "drizzle-zod",
-      ],
+      external: ["pg", "drizzle-orm/pg-core", "drizzle-orm", "drizzle-zod"],
     },
   },
   plugins: [react(), TanStackRouterVite()],
@@ -26,7 +20,8 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://127.0.0.1:3000",
+        // target: "http://127.0.0.1:3000",
+        target: "https://buug-m6em.onrender.com/",
         changeOrigin: true,
       },
     },
