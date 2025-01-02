@@ -12,14 +12,15 @@ const app = new Hono();
 
 app.use("*", logger());
 
-app.use(
-  "*",
-  cors({
-    origin: "https://buug-client.onrender.com/", // Replace with your frontend URL
-    allowMethods: ["GET", "POST", "PUT", "DELETE"],
-    allowHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use("*", cors({ origin: "*" }));
+// app.use(
+//   "*",
+//   cors({
+//     origin: "https://buug-client.onrender.com/", // Replace with your frontend URL
+//     allowMethods: ["GET", "POST", "PUT", "DELETE"],
+//     allowHeaders: ["Content-Type", "Authorization"],
+//   })
+// );
 
 const routes = app
   .basePath("/api")
