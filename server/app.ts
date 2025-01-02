@@ -1,6 +1,7 @@
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { logger } from "hono/logger";
-import { serveStatic } from "hono/bun";
+// import { serveStatic } from "hono/bun";
 import authRoute from "./route/apiRoute";
 import { taskRoute } from "./route/taskRoute";
 import projectRoute from "./route/projectRoute";
@@ -20,8 +21,16 @@ const routes = app
   .route("/", chartRoute);
 //
 
-app.get("*", serveStatic({ root: "./client/dist" }));
-app.get("*", serveStatic({ path: "./client/dist/index.html" }));
+app.use(
+  cors({
+    origin: "https://buug-m6em.onrender.com/", // Replace with your frontend URL
+    allowMethods: ["GET", "POST", "PUT", "DELETE"],
+    allowHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+// app.get("*", serveStatic({ root: "./client/dist" }));
+// app.get("*", serveStatic({ path: "./client/dist/index.html" }));
 
 export type AppType = typeof routes;
 export default app;
