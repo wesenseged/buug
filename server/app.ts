@@ -12,6 +12,15 @@ const app = new Hono();
 
 app.use("*", logger());
 
+app.use(
+  "*",
+  cors({
+    origin: "https://buug-client.onrender.com/", // Replace with your frontend URL
+    allowMethods: ["GET", "POST", "PUT", "DELETE"],
+    allowHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 const routes = app
   .basePath("/api")
   .route("/", authRoute)
@@ -20,14 +29,6 @@ const routes = app
   .route("/", noteRoute)
   .route("/", chartRoute);
 //
-
-app.get(
-  cors({
-    origin: "https://buug-client.onrender.com/", // Replace with your frontend URL
-    allowMethods: ["GET", "POST", "PUT", "DELETE"],
-    allowHeaders: ["Content-Type", "Authorization"],
-  })
-);
 
 // app.get("*", serveStatic({ root: "./client/dist" }));
 // app.get("*", serveStatic({ path: "./client/dist/index.html" }));
