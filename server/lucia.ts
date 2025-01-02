@@ -78,7 +78,7 @@ export function setSessionTokenCookie(
   token: string,
   expiresAt: Date
 ): void {
-  const cookie = `session=${token}; HttpOnly; SameSite=Lax; Expires=${expiresAt.toUTCString()}; Path=/; ${
+  const cookie = `session=${token}; HttpOnly; SameSite=None; Expires=${expiresAt.toUTCString()}; Path=/; ${
     env === "production" ? "Secure;" : ""
   }`;
 
@@ -87,7 +87,7 @@ export function setSessionTokenCookie(
 
 // Function to delete the session token cookie
 export function deleteSessionTokenCookie(c: Context): void {
-  const cookie = `session=; HttpOnly; SameSite=Lax; Max-Age=0; Path=/; ${
+  const cookie = `session=; HttpOnly; SameSite=None; Max-Age=0; Path=/; ${
     env === "production" ? "Secure;" : ""
   }`;
 

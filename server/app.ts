@@ -17,12 +17,20 @@ app.use(
   cors({
     origin: "https://buug-client.onrender.com",
     allowHeaders: ["Content-Type", "Authorization"],
-    allowMethods: ["GET", "POST", "PUT", "DELETE"],
+    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     exposeHeaders: ["Content-Length"],
-    maxAge: 600,
     credentials: true, // Allow credentials to be included
   })
 );
+
+// Handle preflight (OPTIONS) requests
+app.options("*", async (c) => {
+  c.header("Access-Control-Allow-Origin", "https://buug-client.onrender.com");
+  c.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  c.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  c.header("Access-Control-Allow-Credentials", "true");
+  c.status(204);
+});
 
 const routes = app
   .basePath("/api")
