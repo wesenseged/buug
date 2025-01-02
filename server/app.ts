@@ -15,7 +15,7 @@ app.use("*", logger());
 app.use(
   "*",
   cors({
-    origin: "https://buug.vercel.app",
+    origin: "https://buug-client.onrender.com",
     allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["GET", "POST", "PUT", "DELETE"],
     exposeHeaders: ["Content-Length"],
