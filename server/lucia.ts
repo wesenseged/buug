@@ -11,7 +11,7 @@ import { db } from "./adapter";
 
 import { type Context } from "hono";
 
-const env = process.env.NODE_ENV || "development";
+const env = process.env.NODE_ENV || "production";
 // add Lax instead of None
 
 // Generate Token
