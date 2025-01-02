@@ -23,7 +23,7 @@ const routes = app
 
 app.use(
   cors({
-    origin: "https://buug-m6em.onrender.com/", // Replace with your frontend URL
+    origin: "https://buug-client.onrender.com/", // Replace with your frontend URL
     allowMethods: ["GET", "POST", "PUT", "DELETE"],
     allowHeaders: ["Content-Type", "Authorization"],
   })
