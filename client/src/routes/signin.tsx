@@ -15,7 +15,7 @@ import {InsertUser } from "@/types/user";
 export default function Signup() {
   const navigate = useNavigate();
   const signup = async (value: InsertUser) => {
-    const res = await api.register.$post({ json: value });
+    const res = await api.register.$post({ json: value ,credentials: 'include'});
     const data = await res.json();
     return data;
   };

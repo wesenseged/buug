@@ -19,7 +19,7 @@ export default function Login() {
   const { toast } = useToast();
 
   const login = async (value: LoginUser) => {
-    const res = await api.login.$post({ json: value });
+    const res = await api.login.$post({ json: value,credentials: 'include' });
     const data = await res.json();
     if (!res.ok) {
       toast({
