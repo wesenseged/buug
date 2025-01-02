@@ -11,7 +11,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { InsertProject } from "@server/types/project";
+import { InsertProject } from "@/types/project";
 import { Label } from "../ui/label";
 
 export function DrawerDemo(props: { item: InsertProject }) {

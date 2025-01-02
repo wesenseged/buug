@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 // api
 import { api } from "@/lib/api";
 // signin schema for type safty
-import {InsertUser } from "@server/types/user";
+import {InsertUser } from "@/types/user";
 
 export default function Signup() {
   const navigate = useNavigate();

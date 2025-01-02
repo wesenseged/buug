@@ -1,4 +1,4 @@
-import { InsertProject } from "@server/types/project";
+import { InsertProject } from "@/types/project";
 import { ColumnDef } from "@tanstack/react-table";
 import {
   ArrowUpDown,

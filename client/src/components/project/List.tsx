@@ -1,5 +1,5 @@
 import { Progress } from "@/components/ui/progress";
-import { InsertProject } from "@server/types/project";
+import { InsertProject } from "@/types/project";
 import { useDraggable } from "@dnd-kit/core";
 
 export default function List(props: {

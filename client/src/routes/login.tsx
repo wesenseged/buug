@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 // api
 import { api } from "@/lib/api";
 // login schema for type safty
-import {  LoginUser } from "@server/types/user";
+import {  LoginUser } from "@/types/user";
 
 export default function Login() {
   const navigate = useNavigate();

@@ -18,7 +18,7 @@ import { zodValidator } from "@tanstack/zod-form-adapter";
 import { useEffect, useState } from "react";
 import { Plus } from "lucide-react";
 import { useForm } from "@tanstack/react-form";
-import { insertNoteSchema } from "@server/types/note";
+import { insertNoteSchema } from "@/types/note";
 import { Toaster } from "../ui/toaster";
 
 export default function AddNote() {

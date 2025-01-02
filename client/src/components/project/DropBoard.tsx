@@ -1,7 +1,7 @@
 import useProjectStore from "@/store/projectStore";
 import Board from "./Board";
 import { useDroppable } from "@dnd-kit/core";
-import { InsertProject } from "@server/types/project";
+import { InsertProject } from "@/types/project";
 import useMainStore from "@/store/mainStore";
 
 export default function DropBoard(props: {

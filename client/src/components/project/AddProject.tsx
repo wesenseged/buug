@@ -23,7 +23,7 @@ import useProjectStore from "@/store/projectStore";
 import useMainStore from "@/store/mainStore";
 // api
 import { api } from "@/lib/api";
-import { insertProjectSchema } from "@server/types/project";
+import { insertProjectSchema } from "@/types/project";
 import { Plus } from "lucide-react";
 
 interface NewProject {

@@ -1,4 +1,4 @@
-import { InsertProject } from "@server/types/project";
+import { InsertProject } from "@/types/project";
 import { DataTable } from "../task/dataTable";
 import { columns } from "./column-pro";
 import { Card, CardDescription, CardFooter, CardHeader } from "../ui/card";

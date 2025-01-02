@@ -1,5 +1,5 @@
 import React from "react";
-import { InsertTask } from "@server/types/task";
+import { InsertTask } from "@/types/task";
 import { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "../ui/checkbox";
 import { useMutation, useQueryClient } from "@tanstack/react-query";

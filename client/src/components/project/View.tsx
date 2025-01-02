@@ -1,6 +1,6 @@
 import useProjectStore from "@/store/projectStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { InsertProject } from "@server/types/project";
+import { InsertProject } from "@/types/project";
 import { api } from "@/lib/api";
 import { useToast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";

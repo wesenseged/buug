@@ -1,6 +1,6 @@
 import { Progress } from "@/components/ui/progress";
 import { useDraggable } from "@dnd-kit/core";
-import { InsertProject } from "@server/types/project";
+import { InsertProject } from "@/types/project";
 
 export default function Board(props: {
   index: number;

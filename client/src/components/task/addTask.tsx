@@ -22,7 +22,7 @@ import useTaskStore from "@/store/taskStore";
 import TypeOption from "./TypeOption";
 // api
 import { api } from "@/lib/api";
-import { insertTaskSchema } from "@server/types/task";
+import { insertTaskSchema } from "@/types/task";
 
 interface NewTask {
   title: string;

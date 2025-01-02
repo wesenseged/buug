@@ -23,6 +23,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["./src","../server/types"],
-  "exclude": ["../server"]
+  "include": ["src"],
+  "exclude": ["server"]
 }

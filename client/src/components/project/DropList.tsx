@@ -1,7 +1,7 @@
 import useProjectStore from "@/store/projectStore";
 import List from "./List";
 import { useDroppable } from "@dnd-kit/core";
-import { InsertProject } from "@server/types/project";
+import { InsertProject } from "@/types/project";
 import useMainStore from "@/store/mainStore";
 
 export default function DropList(props: {

@@ -13,7 +13,7 @@ import { api } from "@/lib/api";
 // Add Note
 import AddNote from "@/components/note/AddNote";
 // note type safty
-import { SelectNote } from "@server/types/note";
+import { SelectNote } from "@/types/note";
 // Ui components
 import { NoteSidebar } from "@/components/ui/noteSidebar";
 import { Button } from "@/components/ui/button";

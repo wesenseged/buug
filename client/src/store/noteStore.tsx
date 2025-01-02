@@ -1,4 +1,4 @@
-import { InsertNote } from "@server/types/note";
+import { InsertNote } from "@/types/note";
 import { ChangeEvent } from "react";
 import { create } from "zustand";
 
