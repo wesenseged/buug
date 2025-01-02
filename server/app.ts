@@ -21,7 +21,7 @@ const routes = app
   .route("/", chartRoute);
 //
 
-app.use(
+app.get(
   cors({
     origin: "https://buug-client.onrender.com/", // Replace with your frontend URL
     allowMethods: ["GET", "POST", "PUT", "DELETE"],
