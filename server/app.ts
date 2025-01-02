@@ -15,7 +15,7 @@ app.use("*", logger());
 app.use(
   "*",
   cors({
-    origin: "https://buug.vercel.app",
+    origin: "https://buug.vercel.app/",
     allowMethods: ["GET", "POST", "PUT", "DELETE"],
     allowHeaders: ["Content-Type", "Authorization"],
     credentials: true, // Allow credentials to be included
