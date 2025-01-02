@@ -2,7 +2,7 @@ import { hc } from "hono/client";
 import type { AppType } from "@server/app";
 import { queryOptions } from "@tanstack/react-query";
 
-const client = hc<AppType>("/");
+const client = hc<AppType>("https://buug-m6em.onrender.com/");
 
 export const api = client.api;
 const getUser = async () => {
