@@ -2,7 +2,16 @@ import { hc } from "hono/client";
 import type { AppType } from "@server/app";
 import { queryOptions } from "@tanstack/react-query";
 
-const client = hc<AppType>("https://buug-m6em.onrender.com/");
+// const client = hc<AppType>("https://buug-m6em.onrender.com/");
+const client = hc<AppType>("https://buug-m6em.onrender.com/", {
+  fetch: (input: RequestInfo | URL, init?: RequestInit) => {
+    const options: RequestInit = {
+      ...init,
+      credentials: "include", // Ensure credentials are explicitly typed
+    };
+    return fetch(input, options);
+  },
+});
 
 export const api = client.api;
 const getUser = async () => {

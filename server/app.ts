@@ -16,7 +16,7 @@ app.use(
   "*",
   cors({
     origin: "https://buug.vercel.app",
-    allowHeaders: ["*"],
+    allowHeaders: ["Content-Type", "Authorization"],
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     exposeHeaders: ["Content-Length"],
     credentials: true, // Allow credentials to be included
