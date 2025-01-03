@@ -10,7 +10,11 @@ export const chartRoute = new Hono()
 
   .get("/chart", handleRequest, async (c) => {
     try {
-      const res = await db.select().from(chartTable);
+      const user = c.get("user");
+      const res = await db
+        .select()
+        .from(chartTable)
+        .where(eq(chartTable.userId, user.id));
       return c.json(res, 200);
     } catch (e) {
       return c.json({ message: e }, 401);
