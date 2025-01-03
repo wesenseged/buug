@@ -18,7 +18,7 @@ export const handleRequest = createMiddleware<Env>(async (c, next) => {
   try {
     if (c.req.method !== "GET") {
       const origin = c.req.header("Origin");
-      if (!origin || origin !== "https://buug-m6em.onrender.com") {
+      if (!origin || origin !== "https://buug.vercel.app") {
         c.status(403);
         return c.json({ message: "Forbidden" });
       }
