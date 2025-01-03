@@ -38,7 +38,7 @@ export default function App() {
   const { toast } = useToast();
 
   const createTask = async (value: NewTask) => {
-    const res = await api.task.create.$post({ json: value });
+    const res = await api.task.create.$post({ json: value ,credentials: 'include'});
     const data = await res.json();
     if (!res.ok) {
       return Error;
