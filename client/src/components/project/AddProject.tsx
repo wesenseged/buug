@@ -23,17 +23,9 @@ import useProjectStore from "@/store/projectStore";
 import useMainStore from "@/store/mainStore";
 // api
 import { api } from "@/lib/api";
-import { insertProjectSchema } from "@/types/project";
+import { insertProjectSchema,InsertProject } from "@/types/project";
 import { Plus } from "lucide-react";
 
-interface NewProject {
-  title: string;
-  description: string;
-  status: string;
-  priority: string;
-  createdAt: string;
-  dueAt: string;
-}
 
 export default function AddProject() {
   const [open, setOpen] = useState(false);
@@ -47,7 +39,7 @@ export default function AddProject() {
 
   const projectCreateMutation = useMutation({
     mutationKey: ["project"],
-    mutationFn: async (value: NewProject) => {
+    mutationFn: async (value: InsertProject) => {
       const res = await api.project.createPro.$post({
         json: value,
       });
@@ -72,7 +64,6 @@ export default function AddProject() {
       priority: "",
     },
     onSubmit: async ({ value }) => {
-      // Do something with form data
       projectCreateMutation.mutate({
         title: value.title,
         description: value.description,

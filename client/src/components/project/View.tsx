@@ -1,6 +1,6 @@
 import useProjectStore from "@/store/projectStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { InsertProject } from "@/types/project";
+import { SelectProject } from "@/types/project";
 import { api } from "@/lib/api";
 import { useToast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";
@@ -10,7 +10,7 @@ import DropList from "./DropList";
 import TableView from "./TableView";
 import { DragEndEvent } from '@dnd-kit/core';
 
-export default function View(props: { data: InsertProject[] }) {
+export default function View(props: { data: SelectProject[] }) {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   const proStore = useProjectStore();

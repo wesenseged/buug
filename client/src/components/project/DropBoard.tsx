@@ -1,7 +1,7 @@
 import useProjectStore from "@/store/projectStore";
 import Board from "./Board";
 import { useDroppable } from "@dnd-kit/core";
-import { InsertProject } from "@/types/project";
+import { SelectProject } from "@/types/project";
 import useMainStore from "@/store/mainStore";
 
 export default function DropBoard(props: {
@@ -9,7 +9,7 @@ export default function DropBoard(props: {
   amh: string;
   color: string;
   value: number;
-  items: InsertProject[];
+  items: SelectProject[];
 }) {
   const store = useProjectStore();
   const mainStore = useMainStore();
@@ -29,7 +29,7 @@ export default function DropBoard(props: {
         .filter((item) =>
           item.title.toLowerCase().includes(store.search.toLowerCase()),
         )
-        .map((project: InsertProject, index: number) => {
+        .map((project: SelectProject, index: number) => {
           return (
             <Board
               key={project.id}

@@ -1,10 +1,10 @@
-import { InsertProject } from "@/types/project";
+import { SelectProject } from "@/types/project";
 import { DataTable } from "../task/dataTable";
 import { columns } from "./column-pro";
 import { Card, CardDescription, CardFooter, CardHeader } from "../ui/card";
 import { Folder } from "lucide-react";
 
-const TableView = (props: { items: InsertProject[] }) => {
+const TableView = (props: { items: SelectProject[] }) => {
   return (
     <div className="w-full">
 
