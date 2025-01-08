@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 // api
 import { api } from "@/lib/api";
 // signin schema for type safty
-import {InsertUser } from "@/types/user";
+import {InsertUser,insertUserSchema } from "@/types/user";
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -71,10 +71,10 @@ export default function Signup() {
           <div>
             <form.Field
               name="username"
-              // validatorAdapter={zodValidator()}
-              // validators={{
-              //   onChange: insertUserSchema.shape.username,
-              // }}
+              validatorAdapter={zodValidator()}
+              validators={{
+                onChange: insertUserSchema.shape.username,
+              }}
               children={(field) => {
                 return (
                   <div className="space-y-4">
@@ -82,7 +82,7 @@ export default function Signup() {
                     <Input
                       id={field.name}
                       name={field.name}
-                      placeholder="Abenezer"
+                      placeholder="wesenseged"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -103,10 +103,10 @@ export default function Signup() {
           <div>
             <form.Field
               name="email"
-              // validatorAdapter={zodValidator()}
-              // validators={{
-              //   onChange: insertUserSchema.shape.email,
-              // }}
+              validatorAdapter={zodValidator()}
+              validators={{
+                onChange: insertUserSchema.shape.email,
+              }}
               children={(field) => {
                 return (
                   <div className="space-y-4">
@@ -114,7 +114,7 @@ export default function Signup() {
                     <Input
                       id={field.name}
                       name={field.name}
-                      placeholder="Abenezer"
+                      placeholder="wesenseged@something.com"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -135,10 +135,10 @@ export default function Signup() {
           <div className="mt-5">
             <form.Field
               name="password_hash"
-              // validatorAdapter={zodValidator()}
-              // validators={{
-              //   onChange: insertUserSchema.shape.password_hash,
-              // }}
+              validatorAdapter={zodValidator()}
+              validators={{
+                onChange: insertUserSchema.shape.password_hash,
+              }}
               children={(field) => {
                 return (
                   <div className="space-y-4">
@@ -146,6 +146,7 @@ export default function Signup() {
                     <Input
                       id={field.name}
                       name={field.name}
+                      type="password"
                       placeholder="*********************"
                       value={field.state.value}
                       onBlur={field.handleBlur}

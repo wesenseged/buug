@@ -33,7 +33,7 @@ export default function Login() {
       title: "User Loggedin",
       description: "Friday, February 10, 2023 at 5:57 PM",
     });
-    navigate({ to: "/" });
+    navigate({ to: "https://buug.vercel.app" });
   };
 
   const mutation = useMutation({
@@ -93,7 +93,7 @@ export default function Login() {
                     <Input
                       id={field.name}
                       name={field.name}
-                      placeholder="wesenseged@skiff.com"
+                      placeholder="wesenseged@something.com"
                       value={field.state.value}
                       onBlur={field.handleBlur}
                       onChange={(e) => field.handleChange(e.target.value)}
@@ -125,6 +125,7 @@ export default function Login() {
                     <Input
                       id={field.name}
                       name={field.name}
+                      type="password"
                       placeholder="*********************"
                       value={field.state.value}
                       onBlur={field.handleBlur}
