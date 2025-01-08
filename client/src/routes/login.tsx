@@ -33,7 +33,7 @@ export default function Login() {
       title: "User Loggedin",
       description: "Friday, February 10, 2023 at 5:57 PM",
     });
-      navigate({ to: "/_authenticated/" }); // Use navigate to redirect
+      navigate({ to: "/" }); // Use navigate to redirect
   };
 
   const mutation = useMutation({

@@ -85,7 +85,7 @@ export default function Profile() {
           <div className="space-y-6 mt-4">
             <Button
               onClick={() => {
-                navigate({ to: "/logout" });
+                navigate({ to: "/login" });
               }}
               className="rounded-sm flex w-28 space-x-2 text-white bg-zinc-800 hover:bg-zinc-900 px-3 py-2 mt-3"
             >
