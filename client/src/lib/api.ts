@@ -2,8 +2,7 @@ import { hc } from "hono/client";
 import type { AppType } from "@server/app";
 import { queryOptions } from "@tanstack/react-query";
 
-// const client = hc<AppType>("https://buug-m6em.onrender.com/");
-const client = hc<AppType>("https://buug-m6em.onrender.com/", {
+const client = hc<AppType>("https://buug-zh5y.onrender.com", {
   fetch: (input: RequestInfo | URL, init?: RequestInit) => {
     const options: RequestInit = {
       ...init,

@@ -21,7 +21,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         // target: "http://127.0.0.1:3000",
-        target: "https://buug-m6em.onrender.com/",
+        target: "https://buug-zh5y.onrender.com",
         changeOrigin: true,
       },
     },
