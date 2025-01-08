@@ -33,12 +33,7 @@ const projectRoute = new Hono()
         const data = c.req.valid("json");
 
         const validatedProject = selectProjectSchema.parse({
-          title: data.title,
-          description: data.description,
-          priority: data.priority,
-          createdAt: data.createdAt,
-          dueAt: data.dueAt,
-          status: data.status,
+          ...data,
           userId: user.id.toString(),
         });
         const result = await db.insert(projects).values(validatedProject);
@@ -47,7 +42,7 @@ const projectRoute = new Hono()
 
         return c.json(result, 200);
       } catch (error) {
-        const message = "Duplicated title";
+        const message = "incalid data";
         return c.json({ message, error }, 400);
       }
     }

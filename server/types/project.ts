@@ -8,7 +8,6 @@ export const taskSchema = z.object({
 
 // Define the project schema for inserting data
 export const insertProjectSchema = z.object({
-  id: z.number().optional(),
   title: z.string().min(3, { message: "Title must be at least 3 characters" }),
   description: z
     .string()
