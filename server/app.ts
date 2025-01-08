@@ -23,10 +23,13 @@ app.use(
   })
 );
 
+app.get("/", async (c) => {
+  c.json({ message: "Hello buug" }, 201);
+});
+
 // Handle preflight (OPTIONS) requests
 app.options("*", async (c) => {
   c.header("Access-Control-Allow-Origin", "https://buug.vercel.app");
-  // c.header("Access-Control-Allow-Origin", "https://buug-client.onrender.com");
   c.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   c.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   c.header("Access-Control-Allow-Credentials", "true");
@@ -40,7 +43,6 @@ const routes = app
   .route("/", projectRoute)
   .route("/", noteRoute)
   .route("/", chartRoute);
-//
 
 // app.get("*", serveStatic({ root: "./client/dist" }));
 // app.get("*", serveStatic({ path: "./client/dist/index.html" }));

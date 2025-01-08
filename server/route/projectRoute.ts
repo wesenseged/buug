@@ -32,13 +32,11 @@ const projectRoute = new Hono()
         const user = c.get("user");
         const data = c.req.valid("json");
 
-        const validatedProject = selectProjectSchema.parse({
+        const validatedProject = {
           ...data,
           userId: user.id.toString(),
-        });
+        };
         const result = await db.insert(projects).values(validatedProject);
-        // .returning()
-        // .then((res) => res[0]);
 
         return c.json(result, 200);
       } catch (error) {
