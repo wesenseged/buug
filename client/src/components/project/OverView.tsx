@@ -50,8 +50,8 @@ export function DrawerDemo(props: { item: InsertProject }) {
                 {props.item.tasks?.map((task, index) => {
                   return (
                     <ul key={index} className="my-2 ml-5">
-                      <li>{task.title}</li>
-                      <li className="text-zinc-500">{task.desc}</li>
+                      <li>{task.title&&task.title}</li>
+                      <li className="text-zinc-500">{task.desc && task.desc}</li>
                     </ul>
                   );
                 })}
