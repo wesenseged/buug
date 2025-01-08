@@ -5,7 +5,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { BookOpen, Cable, CircleHelp, Flame, Mail, Send, Star, X } from 'lucide-react';
+import { BookOpen,House, Cable, CircleHelp, Flame, Github, Mail, Star, X } from 'lucide-react';
 import useMainStore from '@/store/mainStore';
 
 export const Route = createFileRoute('/_authenticated/support')({
@@ -15,36 +15,48 @@ export const Route = createFileRoute('/_authenticated/support')({
 const collections = [
   {
     title: "Getting Started",
+    link: "https://buug-doc.netlify.app/",
     amh: "እንደ መጀመር",
     icon: <Cable />,
-    desc: "Start off on the right foot!",
+    desc: "Learn how to set up and get started with Buug. Explore the basics and kickstart your productivity journey.",
   },
-
   {
     title: "Introduction",
+    link: "https://buug-doc.netlify.app/intro",
     amh: "መግቢያ",
     icon: <Star />,
-    desc: "",
+    desc: "An overview of Buug's features and benefits. Understand how this app revolutionizes productivity.",
   },
   {
     title: "What's new?",
-    amh:"ምን አዲስ ነገር አለ",
+    link: "https://buug-doc.netlify.app/new",
+    amh: "ምን አዲስ ነገር አለ",
     icon: <Flame />,
-    desc: "",
+    desc: "Discover the latest updates and features in Buug. Stay up-to-date with improvements and new functionalities.",
   },
   {
-    title: "Guide",
-    amh:"መመሪያ",
+    title: "Installation",
+    link: "https://buug-doc.netlify.app/installation",
+    amh: "መጫን",
+    icon: <House />,
+    desc: "Step-by-step instructions to install Buug. Set up the app quickly on your device.",
+  },
+  {
+    title: "Markdown",
+    link: "https://buug-doc.netlify.app/Markdown",
+    amh: "ማርክዶውን",
     icon: <BookOpen />,
-    desc: "",
+    desc: "A comprehensive guide to Markdown. Learn syntax and tips to create rich, formatted notes.",
   },
   {
     title: "F.A.Q",
+    link: "https://buug-doc.netlify.app/faq",
     amh: "የሚጠየቁ ጥያቄዎች",
     icon: <CircleHelp />,
-    desc: "All you can eat sef-sevre problem solving",
+    desc: "Answers to frequently asked questions about Buug. Find solutions to common issues and queries.",
   },
-]
+];
+
 
 function RouteComponent() {
   const mainStore = useMainStore()
@@ -59,6 +71,8 @@ function RouteComponent() {
             return (
               <div className='grid '>
                 
+              <a href={coll.link} target="_blank">
+
             <Card key={index} className="w-96 my-5">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardDescription className="text-xl">
@@ -72,6 +86,7 @@ function RouteComponent() {
                 <p className="text-sm text-zinc-500">{coll.desc}</p>
               </CardFooter>
             </Card>
+              </a>
 
               </div>
 
@@ -85,7 +100,7 @@ function RouteComponent() {
         <div className='flex space-x-5'>
            <a href="https://x.com/wesenseged_" target='_blank'><X size={40} className='hover:scale-105'/></a>
            <Mail size={40} className='hover:scale-105'/>
-           <a href="https://t.me/@aeven0" target="_blank"><Send size={40} className='hover:scale-105'/></a>
+           <a href="https://github.com/wesenseged/buug" target="_blank"><Github size={40} className='hover:scale-105'/></a>
         </div>
      </div>
     </section>

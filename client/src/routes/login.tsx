@@ -12,7 +12,8 @@ import { useToast } from "@/hooks/use-toast";
 // api
 import { api } from "@/lib/api";
 // login schema for type safty
-import {  LoginUser } from "@/types/user";
+import {  LoginUser,loginUserSchema } from "@/types/user";
+
 
 export default function Login() {
   const navigate = useNavigate();
@@ -82,12 +83,11 @@ export default function Login() {
           <div>
             <form.Field
               name="email"
-              // validatorAdapter={zodValidator()}
-              // validators={{
-              //   onChange: loginUserSchema.shape.email,
-              // }}
+              validatorAdapter={zodValidator()}
+              validators={{
+                onChange: loginUserSchema.shape.email,
+              }}
               children={(field) => {
-                // Avoid hasty abstractions. Render props are great!
                 return (
                   <div className="space-y-4">
                     <Label htmlFor={field.name}>Email</Label>
@@ -115,12 +115,11 @@ export default function Login() {
           <div className="mt-5">
             <form.Field
               name="password_hash"
-              // validatorAdapter={zodValidator()}
-              // validators={{
-              //   onChange: loginUserSchema.shape.password_hash,
-              // }}
+              validatorAdapter={zodValidator()}
+              validators={{
+                onChange: loginUserSchema.shape.password_hash,
+              }}
               children={(field) => {
-                // Avoid hasty abstractions. Render props are great!
                 return (
                   <div className="space-y-4">
                     <Label htmlFor={field.name}>Password</Label>
@@ -159,20 +158,6 @@ export default function Login() {
               <p className="text-zinc-500">Or</p>
               <div className="border-b w-40 border-b-zinc-700" />
             </div>
-          </div>
-          <div className="flex justify-between w-96">
-            <Button
-              type="button"
-              className="text-lg py-6 bg-zinc-900 hover:dark:bg-zinc-100 hover:dark:text-black font-thin w-40 rounded-3xl text-white"
-            >
-              Google
-            </Button>
-            <Button
-              type="button"
-              className="text-lg py-6 bg-zinc-900 hover:dark:bg-zinc-100 hover:dark:text-black font-thin w-40 rounded-3xl text-white"
-            >
-              Facebook
-            </Button>
           </div>
           <div className="items-center flex mt-5 space-x-2 text-lg">
             <p>create new account ? </p>
