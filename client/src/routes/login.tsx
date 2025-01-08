@@ -21,7 +21,7 @@ export default function Login() {
 
   const login = async (value: LoginUser) => {
     const res = await api.login.$post({ json: value,credentials: 'include' });
-    const data = await res.json();
+     await res.json();
     if (!res.ok) {
       toast({
         title: "Invalid Credential",
@@ -33,8 +33,7 @@ export default function Login() {
       title: "User Loggedin",
       description: "Friday, February 10, 2023 at 5:57 PM",
     });
-    navigate({ to: "/task" });
-    return data;
+    navigate({ to: "/" });
   };
 
   const mutation = useMutation({
