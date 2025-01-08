@@ -1,5 +1,5 @@
 // Tanstack router, query, zod-form-adapter, form
-import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMutation } from "@tanstack/react-query";
 import { zodValidator } from "@tanstack/zod-form-adapter";
 import { useForm } from "@tanstack/react-form";
@@ -17,6 +17,7 @@ import {  LoginUser,loginUserSchema } from "@/types/user";
 
 export default function Login() {
   const { toast } = useToast();
+  const navigate = useNavigate(); 
 
   const login = async (value: LoginUser) => {
     const res = await api.login.$post({ json: value,credentials: 'include' });
@@ -32,7 +33,7 @@ export default function Login() {
       title: "User Loggedin",
       description: "Friday, February 10, 2023 at 5:57 PM",
     });
-    redirect({ to: "https://buug.vercel.app" })
+      navigate({ to: "/_authenticated/" }); // Use navigate to redirect
   };
 
   const mutation = useMutation({
