@@ -20,6 +20,8 @@ import { taskQueryOption } from "@/lib/api";
 import { Activity, CircleAlert } from "lucide-react";
 // Error page
 import { ErrorPage } from "@/lib/error";
+// Task Type
+import {SelectTask} from "@/types/task"
 
 
 // Define the main Tasks component
@@ -29,7 +31,7 @@ export function Tasks() {
   const date = new Date()
 
 
- const active =    data && data.task.filter(task => {
+ const active = data && data.task.filter((task:SelectTask) => {
       const newDueDate = new Date(task.dueAt!);
       const timeDiff = newDueDate.getTime() - date.getTime();
       const hours = Math.floor(timeDiff / (1000 * 60 * 60));
@@ -38,7 +40,7 @@ export function Tasks() {
       return active
  })
 
- const inactive =  data && data.task.filter(task => {
+ const inactive =  data && data.task.filter((task:SelectTask) => {
       const newDueDate = new Date(task.dueAt!);
       const timeDiff = newDueDate.getTime() - date.getTime();
       const hours = Math.floor(timeDiff / (1000 * 60 * 60));

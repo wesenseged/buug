@@ -1,8 +1,6 @@
 // Tanstack router, query
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute,useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-// Ui components
-import { Label } from "@/components/ui/label";
 // api
 import { api } from "@/lib/api";
 // Error page
@@ -13,31 +11,23 @@ export const Route = createFileRoute("/_authenticated/logout")({
 });
 
 function Logout() {
-  const { data, error } = useQuery({
+  const navigate = useNavigate();
+  const {data, error } = useQuery({
     queryKey: ["logout"],
     queryFn: async () => {
       const res = await api.logout.$get();
       const data = res.json();
       return data;
-    },
+    }
   });
+
+  useEffect(() => {
+    if (data) {
+      navigate({ to: "/login" });
+    }
+  }, [data, navigate]);
 
   if (error) return <ErrorPage />;
 
-  if (data)
-    return (
-      <section>
-        <h1>Logged out successfully</h1>
-        <div>
-          <div>
-            <Label>Signin</Label>
-            <a href="/signin"></a>
-          </div>
-          <div>
-            <Label>Login</Label>
-            <a href="/login"></a>
-          </div>
-        </div>
-      </section>
-    );
+  return null; 
 }

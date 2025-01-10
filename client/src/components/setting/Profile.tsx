@@ -14,6 +14,7 @@ export default function Profile() {
   const { data, isPending } = useQuery(userQueryOption);
   if (isPending) return <>Loading</>;
 
+
   const account = {
     title: {
       eng: "Profile",
@@ -67,25 +68,10 @@ export default function Profile() {
               {mainStore.toggleLanguage ? account.d1.eng : account.d1.amh}
             </p>
           </div>
-          {/* <div className="space-y-2 mt-4"> */}
-          {/*   <Label htmlFor="email" className="text-lg"> */}
-          {/*     {mainStore.toggleLanguage ? account.s2.eng : account.s2.amh} */}
-          {/*   </Label> */}
-          {/*   <Input */}
-          {/*     name="email" */}
-          {/*     value={data.user.email} */}
-          {/*     disabled */}
-          {/*     type="email" */}
-          {/*     className="text-lg" */}
-          {/*   /> */}
-          {/*   <p className="text-sm text-gray-400 dark:text-gray-500"> */}
-          {/*     {mainStore.toggleLanguage ? account.d2.eng : account.d2.amh} */}
-          {/*   </p> */}
-          {/* </div> */}
           <div className="space-y-6 mt-4">
             <Button
               onClick={() => {
-                navigate({ to: "/login" });
+                navigate({ to: "/logout" });
               }}
               className="rounded-sm flex w-28 space-x-2 text-white bg-zinc-800 hover:bg-zinc-900 px-3 py-2 mt-3"
             >
