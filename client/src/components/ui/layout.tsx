@@ -38,7 +38,7 @@ import {
 import { useSidebar } from "@/components/ui/sidebar";
 import useMainStore from "@/store/mainStore";
 import { Button } from "./button";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { userQueryOption } from "@/lib/api";
 
@@ -92,6 +92,7 @@ const helpItems = [
 
 export function AppSidebar() {
   const store = useMainStore();
+  const navigate = useNavigate()
   const { data } = useQuery(userQueryOption);
   const { state, toggleSidebar } = useSidebar();
   return (
