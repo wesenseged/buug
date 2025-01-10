@@ -11,7 +11,7 @@ const TableView = (props: { items: InsertProject[] }) => {
             <Card className="w-96 my-10">
               <CardHeader className="flex flex-row items-center justify-between">
                 <CardDescription className="text-xl">
-{props.items.length > 1 ? "Active Projects": "Active Project"}
+        {props.items.length > 1 ? "Active Projects": "Active Project"}
                 </CardDescription>
                 <div>
                   <Folder color="gray" size={18} />
