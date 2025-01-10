@@ -192,7 +192,9 @@ export function AppSidebar() {
                   <Bell size={16} />
                   <span>Notification</span>
                 </Button>
-                <Button className="flex w-full items-center justify-start bg-zinc-50 dark:bg-zinc-950 hover:bg-zinc-200 hover:dark:bg-zinc-800 text-black dark:text-white">
+                <Button onClick={() => {
+                navigate({ to: "/logout" });
+                }} className="flex w-full items-center justify-start bg-zinc-50 dark:bg-zinc-950 hover:bg-zinc-200 hover:dark:bg-zinc-800 text-black dark:text-white">
                   <LogOut size={16} />
                   <span>Sign out</span>
                 </Button>
