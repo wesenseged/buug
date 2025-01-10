@@ -89,7 +89,7 @@ export const columns: ColumnDef<InsertProject>[] = [
     header: "Tasks",
     cell: ({ row }) => {
       const task: { title: string; desc: string }[] = row.getValue("tasks");
-      return task ? (
+      return task && task.length > 0 ?  (
         <div>
           <h1 className=" font-medium">- {task[0].title}</h1>
           <h1 className=" text-sm text-zinc-500">{task[0].desc}</h1>
