@@ -15,10 +15,15 @@ type Env = {
 };
 
 export const handleRequest = createMiddleware<Env>(async (c, next) => {
+  const url =
+    process.env.NODE_ENV === "production"
+      ? process.env.API_BASE_URL!
+      : "http://localhost:3000";
+
   try {
     if (c.req.method !== "GET") {
       const origin = c.req.header("Origin");
-      if (!origin || origin !== "https://buug.vercel.app") {
+      if (!origin || origin !== url) {
         c.status(403);
         return c.json({ message: "Forbidden" });
       }

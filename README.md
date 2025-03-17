@@ -40,31 +40,52 @@ Currently, Buug is available as a web app. You can also clone the repository and
    ```bash
    bun install
    ```
-4. Build the server:
-   ```bash
-   bun build
-   ```
-5. Navigate to the project directory:
-   ```bash
-   cd client
-   ```
-5. Install client dependency:
-   ```bash
-   bun install
-   ```
-6. Build client:
-   ```bash
-   bun build
-   ```
-8. Set up a `.env` file with the following variable for local development:
+4. Set up a `.env` file with the following variables for local development:
    ```env
    DATABASE_URL=<your-neon-postgres-url>
    PORT=<port number>
+   NODE_ENV=development
+   API_BASE_URL=http://localhost:3000
    ```
-
-7. Start the development server:
+5. Generate SQL migrations based on your Drizzle schema:
    ```bash
-   bun start
+   bun drizzle-kit generate
+   ```
+6. Uncomment the following lines in your code to serve static files during development:
+   ```javascript
+   // import { serveStatic } from "hono/bun";
+   
+   // app.get("*", serveStatic({ root: "./client/dist" }));
+   // app.get("*", serveStatic({ path: "./client/dist/index.html" }));
+   ```
+7. Build the server:
+   ```bash
+   bun run build
+   ```
+8. After we setup our server now goto client
+   ```
+   cd client
+   ```
+9. Install client dependency
+   ```
+   bun install
+   ```
+10. Set up a `.env` file with the following variables for frontend:
+   ```env
+   VITE_ENV=development
+   VITE_API_URL=http://localhost:3000
+   ```
+11. Build the client
+   ```
+   bun run build
+   ```
+12. Goto the root directory
+   ```
+   cd ..
+   ```
+13. Finally start the development server:
+   ```bash
+   bun run start
    ```
 In the future, Docker support will be added for easier setup.
 

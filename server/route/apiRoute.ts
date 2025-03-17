@@ -53,7 +53,7 @@ const authRoute = new Hono()
 
     const passwordValidation = await Bun.password.verify(
       data.password_hash,
-      existingUser.password_hash
+      existingUser.password_hash,
     );
     if (!passwordValidation) {
       throw new HTTPException(401, { message: "invalid credential" });
@@ -71,7 +71,7 @@ const authRoute = new Hono()
     setSessionTokenCookie(
       c,
       token!,
-      new Date(Date.now() + 1000 * 60 * 60 * 24 * 30)
+      new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
     );
     return c.json({ session, user }, 201);
   })

@@ -25,7 +25,7 @@ export function generateSessionToken(): string {
 // Create Sesstion
 export async function createSession(
   token: string,
-  userId: string
+  userId: string,
 ): Promise<Session> {
   const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
   const session: Session = {
@@ -39,7 +39,7 @@ export async function createSession(
 
 // Validate Sesstion
 export async function validateSessionToken(
-  token: string
+  token: string,
 ): Promise<SessionValidationResult> {
   const sessionId = encodeHexLowerCase(sha256(new TextEncoder().encode(token)));
   const result = await db
@@ -76,10 +76,10 @@ export async function invalidateSession(sessionId: string): Promise<void> {
 export function setSessionTokenCookie(
   c: Context,
   token: string,
-  expiresAt: Date
+  expiresAt: Date,
 ): void {
-  const cookie = `session=${token}; HttpOnly; SameSite=None; Expires=${expiresAt.toUTCString()}; Path=/; ${
-    env === "production" ? "Secure;" : ""
+  const cookie = `session=${token}; HttpOnly; Expires=${expiresAt.toUTCString()}; Path=/; ${
+    env === "production" ? "SameSite=None; Secure;" : "SameSite=Lax;"
   }`;
 
   c.header("Set-Cookie", cookie);
@@ -87,8 +87,8 @@ export function setSessionTokenCookie(
 
 // Function to delete the session token cookie
 export function deleteSessionTokenCookie(c: Context): void {
-  const cookie = `session=; HttpOnly; SameSite=None; Max-Age=0; Path=/; ${
-    env === "production" ? "Secure;" : ""
+  const cookie = `session=; HttpOnly;  Max-Age=0; Path=/; ${
+    env === "production" ? "SameSite=None; Secure;" : "SameSite=Lax;"
   }`;
 
   c.header("Set-Cookie", cookie);

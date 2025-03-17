@@ -2,15 +2,18 @@ import { hc } from "hono/client";
 import type { AppType } from "@server/app";
 import { queryOptions } from "@tanstack/react-query";
 
-const client = hc<AppType>("https://buug-zh5y.onrender.com", {
-  fetch: (input: RequestInfo | URL, init?: RequestInit) => {
-    const options: RequestInit = {
-      ...init,
-      credentials: "include", // Ensure credentials are explicitly typed
-    };
-    return fetch(input, options);
-  },
-});
+const client =
+  import.meta.env.VITE_ENV === "production"
+    ? hc<AppType>(import.meta.env.VITE_API_URL, {
+        fetch: (input: RequestInfo | URL, init?: RequestInit) => {
+          const options: RequestInit = {
+            ...init,
+            credentials: "include", // Ensure credentials are explicitly typed
+          };
+          return fetch(input, options);
+        },
+      })
+    : hc<AppType>("/");
 
 export const api = client.api;
 const getUser = async () => {
