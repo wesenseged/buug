@@ -51,7 +51,7 @@ Currently, Buug is available as a web app. You can also clone the repository and
    ```bash
    bun drizzle-kit generate
    ```
-6. Uncomment the following lines in your code to serve static files during development:
+6. Uncomment the following lines in server/app.ts to serve static files during development:
    ```javascript
    // import { serveStatic } from "hono/bun";
    

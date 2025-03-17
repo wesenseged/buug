@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
-import { serveStatic } from "hono/bun";
+// import { serveStatic } from "hono/bun";
 import authRoute from "./route/apiRoute";
 import { taskRoute } from "./route/taskRoute";
 import projectRoute from "./route/projectRoute";
@@ -26,9 +26,9 @@ app.use(
   }),
 );
 
-// app.get("/", async (c) => {
-//   c.json({ message: "Hello buug" }, 201);
-// });
+app.get("/", async (c) => {
+  c.json({ message: "Hello buug" }, 201);
+});
 
 // Handle preflight (OPTIONS) requests
 app.options("*", async (c) => {
@@ -53,8 +53,8 @@ const routes = app
   .route("/", chartRoute);
 
 // uncomment the next 2 lines to serve static files in development
-app.get("*", serveStatic({ root: "./client/dist" }));
-app.get("*", serveStatic({ path: "./client/dist/index.html" }));
+// app.get("*", serveStatic({ root: "./client/dist" }));
+// app.get("*", serveStatic({ path: "./client/dist/index.html" }));
 
 export type AppType = typeof routes;
 export default app;
